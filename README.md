@@ -23,23 +23,26 @@ $ npm start
 ## ENDPOINTS MOVIES
 
 ### GET /movies
+
 Returns collections of all avaliable films in database.
 
 ### GET /movies/:id
+
 Return film by id.
 
 ### POST /movies/:id
-Add films to database. ID must be a valid IMDb ID (e.g. tt1285016), otherwise returns error.
 
+Add films to database. ID must be a valid IMDb ID (e.g. tt1285016), otherwise returns error.
 
 ## ENDPOINTS COMMENTS
 
 ### GET /comments
+
 Returns collections of all avaliable comments in database.
 
 ### POST /comments/:id"
-Add comment to database. ID must be a valid IMDb ID (e.g. tt1285016), otherwise returns error.
 
+Add comment to database. ID must be a valid IMDb ID (e.g. tt1285016), otherwise returns error.
 
 ## HEROKU
 
@@ -50,6 +53,6 @@ To run this on heroku you need a MongoDB.
 
 ## Docker
 
-To run app on heroku you need set global variables (https://devcenter.heroku.com/articles/config-vars) the same as in .env file with:
+To run app on heroku you need set global variables (https://docs.docker.com/compose/environment-variables/) the same as in .env file with:
 NODE_ENV=production
 To run this on Docker you need a MongoDB.
