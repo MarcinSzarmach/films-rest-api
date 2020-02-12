@@ -1,0 +1,23 @@
+{
+    "name": "rest-api-films",
+    "version": "1.0.0",
+    "description": "REST API for films",
+    "main": "index.js",
+    "scripts": {
+        "debug": "nodemon --inspect server.js",
+        "devStart": "nodemon server.js",
+        "test": "test"
+    },
+    "author": "Marcin Szarmach",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "express": "^4.17.1",
+        "lodash": "^4.17.15",
+        "mongoose": "^5.8.11"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0",
+        "nodemon": "^2.0.2"
+    }
+}
