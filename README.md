@@ -43,6 +43,15 @@ Returns collections of all avaliable comments in database.
 ### POST /comments/:id"
 
 Add comment to database. ID must be a valid IMDb ID (e.g. tt1285016), otherwise returns error.
+Value of comment you need to send with Headers: Content-type: application/json and in body:
+
+```bash
+{
+	"value":"Test comment"
+}
+```
+
+Remember, "value is required. Comments are associated to film.
 
 ## HEROKU
 

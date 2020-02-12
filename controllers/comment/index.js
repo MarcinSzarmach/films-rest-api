@@ -17,6 +17,7 @@ module.exports = {
   create: async (req, res) => {
     const { id } = req.params;
     const { value } = req.body;
+    if (!value) res.status(400).json({ message: lang.valueisReq });
     try {
       const film = await Film.findOne({ id });
       if (!film) {
