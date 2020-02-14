@@ -1,18 +1,35 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
-var port = process.env.PORT || 8080;
-
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
-const db = mongoose.connection;
-db.on("error", error => console.error(error));
-db.once("open", () => console.log("connected to database"));
-
-app.use(express.json());
-
 const filmsRouter = require("./routes/film");
-app.use("/", filmsRouter);
+var port = process.env.PORT || 8080;
+var DB_URL = process.env.DATABASE_URL;
 
-app.listen(port, () => console.log("server started"));
+class App {
+    constructor() {
+        this.server = express();
+        this.middlewares();
+        this.db = this.database();
+        this.routes();
+        this.server.listen(port, () => console.log("server started"));
+    }
+
+    middlewares() {
+        this.server.use(express.json());
+    }
+
+    database() {
+        mongoose.connect(DB_URL, { useNewUrlParser: true });
+        const db = mongoose.connection;
+        db.on("error", error => console.error(error));
+        db.once("open", () => console.log("connected to database"));
+        return db;
+    }
+
+    routes() {
+        this.server.use("/", filmsRouter);
+    }
+}
+
+module.exports = new App();

@@ -65,3 +65,11 @@ To run this on heroku you need a MongoDB.
 To run app on Docker you need set global variables (https://docs.docker.com/compose/environment-variables/) the same as in .env file with:
 NODE_ENV=production
 To run this on Docker you need a MongoDB.
+
+## Tests
+
+To run tests you need .env file. To start:
+
+```bash
+$ npm test
+```
